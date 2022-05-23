@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../models/');
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
@@ -105,10 +105,5 @@ router.get('/signup', (req, res) => {
 
     res.render('signup');
 });
-
-
-router.get('*', (req, res) => {
-    res.status(404).send("Can't go there!");
-})
 
 module.exports = router;
